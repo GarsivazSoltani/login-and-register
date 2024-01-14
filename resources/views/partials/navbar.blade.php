@@ -9,22 +9,21 @@
     </button>
     <div class="auth-btn collapse justify-content-end navbar-collapse">
         @guest
-    <a class="btn btn-info  mr-2" href="#">ورود</a>
-    <a class="btn btn-info mr-2" href="#">ثبت نام</a>
+            <a class="btn btn-info  mr-2" href="#">@lang('public.login')</a>
+            <a class="btn btn-info mr-2" href="#">@lang('public.register')</a>
         @endguest
         @auth
- <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    تست
-                </a>
-                <div class="dropdown-menu logout-btn" aria-labelledby="navbarDropdown">
-                <a href="{{route('auth.two.factor.toggle.form')}}" class="dropdown-item">دو مرحله‌ای</a>
-                <a class="dropdown-item" href="#">خروج</a>
-                </div>
-       </li>
-</ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+                        aria-haspopup="true" aria-expanded="false">
+                        @lang('auth.profile')
+                    </a>
+                    <div class="dropdown-menu logout-btn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">@lang('auth.logout')</a>
+                    </div>
+                </li>
+            </ul>
         @endauth
     </div>
 </nav>
