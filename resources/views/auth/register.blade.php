@@ -4,8 +4,8 @@
     
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        {{-- @include('partials.alerts') --}}
+    <div class="col-md-8 mt-3">
+        @include('partials.alerts')
         <div class="card">
             <div class="card-header">
                 @lang('auth.register user')

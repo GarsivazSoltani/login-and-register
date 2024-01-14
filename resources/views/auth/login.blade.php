@@ -7,8 +7,8 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            {{-- @include('partials.alerts') --}}
+        <div class="col-md-6 mt-3">
+            @include('partials.alerts')
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -53,7 +53,7 @@
                         </div>
                         <div class="offset-sm-3">
                         <button type="submit" class="btn btn-primary">@lang('auth.login')</button>
-                        <a href="#" class="btn btn-danger">@lang('auth.login with google')</a>
+                        {{-- <a href="#" class="btn btn-danger">@lang('auth.login with google')</a> --}}
                         </div>
                 </div>
                 </form>
