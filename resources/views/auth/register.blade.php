@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="offset-sm-3">
-                        {{-- @include('partials.validation-errors') --}}
+                        @include('partials.validation-errors')
                     </div>
                     <button type="submit" class="btn btn-primary">@lang('auth.register')</button>
                 </form>
