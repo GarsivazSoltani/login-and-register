@@ -5,13 +5,13 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
-        @include('partials.alerts')
+        {{-- @include('partials.alerts') --}}
         <div class="card">
             <div class="card-header">
                 @lang('auth.register user')
             </div>
             <div class="card-body">
-            <form method="POST" action="{{route('auth.register')}}">
+            <form method="" action="#">
                 @csrf
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label" for="email">@lang('auth.email')</label>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="offset-sm-3">
-                        @include('partials.validation-errors')
+                        {{-- @include('partials.validation-errors') --}}
                     </div>
                     <button type="submit" class="btn btn-primary">@lang('auth.register')</button>
                 </form>
