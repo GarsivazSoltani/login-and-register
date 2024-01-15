@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,8 @@ Route::prefix('auth')->group(function (){
     // Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('auth.register');
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register.form');
     Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.login.form');
+    Route::post('login', [LoginController::class, 'login'])->name('auth.login');
     
 });
 
