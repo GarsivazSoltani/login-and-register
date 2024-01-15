@@ -4,8 +4,8 @@
     </div>
 @endif
 
-@if(session('failed'))
+@if(session('wrongCredentials'))
     <div class="alert alert-danger">
-        ثبت ناموفق عملیات
+        @lang('auth.user or password was wrong')
     </div>
 @endif

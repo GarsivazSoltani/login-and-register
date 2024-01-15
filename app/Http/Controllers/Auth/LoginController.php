@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,7 +21,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -36,5 +38,48 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        // validation
+        $this->validateForm($request);
+        // check user and password
+        if ($this->attemptLogin($request)) {
+            return $this->sendSuccessResponse();
+        }
+        return $this->sendLoginFaileResponse();
+        // login
+        
+        // redirect
+    }
+
+    protected function sendSuccessResponse()
+    {
+        session()->regenerate();
+        return redirect()->intended();
+    }
+
+    protected function sendLoginFaileResponse()
+    {
+        return back()->with('wrongCredentials', true);
+    }
+
+    protected function validateForm(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email', 'exists:users'],
+            'password' => ['required']
+        ]);
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        return Auth::attempt($request->only('email', 'password'), $request->filled('remember'));
     }
 }
