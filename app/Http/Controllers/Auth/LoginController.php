@@ -24,7 +24,7 @@ class LoginController extends Controller
 
     // use AuthenticatesUsers;
     use ThrottlesLogins;
-    protected $maxAttempts = 5;
+    // protected $maxAttempts = 5;
 
     /**
      * Where to redirect users after login.
@@ -55,7 +55,6 @@ class LoginController extends Controller
 
 
         if ($this->hasTooManyLoginAttempts($request)) {
-            // $this->fireLockoutEvent($request);
             return $this->sendLockoutResponse($request);
         }
 
@@ -66,9 +65,6 @@ class LoginController extends Controller
 
         $this->incrementLoginAttempts($request);
         return $this->sendLoginFaileResponse();
-        // login
-        
-        // redirect
     }
 
     protected function sendSuccessResponse()
