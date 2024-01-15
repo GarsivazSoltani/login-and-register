@@ -5,7 +5,7 @@
 @section('content')
     <div class="flex-center course-title position-ref full-height">
         <div class="content mt-3">
-            @include('partials.alerts');
+            @include('partials.alerts')
             <div class="title m-b-md">
                 @lang('public.register & login system')
             </div>
