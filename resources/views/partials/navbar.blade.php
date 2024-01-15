@@ -20,7 +20,7 @@
                         {{Auth::user()->name}}
                     </a>
                     <div class="dropdown-menu logout-btn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">@lang('auth.logout')</a>
+                        <a class="dropdown-item" href="{{route('auth.logout')}}">@lang('auth.logout')</a>
                     </div>
                 </li>
             </ul>

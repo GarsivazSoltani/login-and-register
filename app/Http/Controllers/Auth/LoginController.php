@@ -82,4 +82,11 @@ class LoginController extends Controller
     {
         return Auth::attempt($request->only('email', 'password'), $request->filled('remember'));
     }
+
+    public function logout()
+    {
+        session()->invalidate();
+        Auth::logout();
+        return redirect()->route('home');
+    }
 }
