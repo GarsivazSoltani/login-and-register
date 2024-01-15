@@ -23,9 +23,6 @@ Route::prefix('auth')->group(function (){
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register.form');
     Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
     
-    // Route::get('/login', function() {
-    //     return view('auth.login');
-    // });
 });
 
 // Auth::routes();
