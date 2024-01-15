@@ -1,6 +1,6 @@
-@if (session('success'))
+@if (session('registered'))
     <div class="alert alert-success">
-        ثبت موفق عملیات
+        @lang('auth.your registration was successful')
     </div>
 @endif
 

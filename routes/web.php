@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::prefix('auth')->group(function (){
     // Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('auth.register');

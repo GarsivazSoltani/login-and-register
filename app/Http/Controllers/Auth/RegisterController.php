@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -70,7 +71,9 @@ class RegisterController extends Controller
         // stor user
         $user = $this->create($request->all());
         // login
+        Auth::login($user);
         // redirect
+        return redirect()->route('home')->with('registered', true);
         dd($request->all());
     }
 

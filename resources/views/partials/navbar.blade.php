@@ -17,7 +17,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
                         aria-haspopup="true" aria-expanded="false">
-                        @lang('auth.profile')
+                        {{Auth::user()->name}}
                     </a>
                     <div class="dropdown-menu logout-btn" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">@lang('auth.logout')</a>
