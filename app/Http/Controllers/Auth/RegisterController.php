@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone_number' => $data['phone_number']
         ]);
     }
 
@@ -66,10 +67,11 @@ class RegisterController extends Controller
     {
         // validate
         $this->validateForm($request);
-        dd($request->all());
         // stor user
+        $user = $this->create($request->all());
         // login
         // redirect
+        dd($request->all());
     }
 
     protected function validateForm(Request $request)
