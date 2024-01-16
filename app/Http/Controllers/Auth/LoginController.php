@@ -53,7 +53,6 @@ class LoginController extends Controller
         // validation
         $this->validateForm($request);
 
-
         if ($this->hasTooManyLoginAttempts($request)) {
             return $this->sendLockoutResponse($request);
         }
