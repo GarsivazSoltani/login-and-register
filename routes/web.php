@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\URL;
 
 Route::get('/', function () {
     // return view('welcome');
-    $url = URL::temporarySignedRoute('test', now()->addMinutes(60), ['id' => 20]);
+    $url = URL::temporarySignedRoute('test', now()->addMinutes(60), ['id' => 20, 'email' => 'garsi.soltani@gmail.com']);
     dd($url);
 })->name('home');
 
@@ -35,6 +36,7 @@ Route::get('logout', function(){
     Auth::logout();
 });
 
-Route::get('verify', function(){
-    return 'hello garsi';
+Route::get('verify', function(Request $request){
+    // return 'hello garsi';
+    Url::hasValidSignature($request);
 })->name('test');
