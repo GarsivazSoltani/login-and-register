@@ -20,7 +20,7 @@ class VerificationController extends Controller
     |
     */
 
-    use VerifiesEmails;
+    // use VerifiesEmails;
 
     /**
      * Where to redirect users after verification.
@@ -43,7 +43,11 @@ class VerificationController extends Controller
 
     public function send()
     {
+        if (Auth::user()->hasVerifiedEmail()) {
+            return redirect()->route('home');
+        }
         Auth::user()->sendEmailVerificationNotification();
-        // dd(Auth::user());
+        // redirect
+        return back()->with('verificationEmailSent', true);
     }
 }

@@ -3,8 +3,8 @@
 
 Dear {{$name}}
 
-<x-mail::button :url="'{{$link}}'">
-erify Your Email
+<x-mail::button :url="$link">
+verify Your Email
 </x-mail::button>
 
 Thanks,<br>

@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\URL;
 
 Route::get('/', function () {
     return view('welcome');
-    // $url = URL::temporarySignedRoute('test', now()->addMinutes(60), ['id' => 20, 'email' => 'garsi.soltani@gmail.com']);
-    // dd($url);
 })->name('home');
 
 Route::prefix('auth')->group(function (){
@@ -34,12 +32,3 @@ Route::prefix('auth')->group(function (){
     Route::get('email/send-verification', [VerificationController::class, 'send'])->name('auth.email.send.verification');
     Route::get('email/verify', [VerificationController::class, 'verify'])->name('auth.email.verify');
 });
-
-// Route::get('logout', function(){
-//     Auth::logout();
-// });
-
-// Route::get('verify', function(Request $request){
-//     // return 'hello garsi';
-//     Url::hasValidSignature($request);
-// })->name('test');
