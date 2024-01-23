@@ -43,6 +43,7 @@ class VerificationController extends Controller
 
     public function send()
     {
+        // check hasVwrificationEmail
         if (Auth::user()->hasVerifiedEmail()) {
             return redirect()->route('home');
         }
