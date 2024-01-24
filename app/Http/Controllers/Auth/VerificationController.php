@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class VerificationController extends Controller
@@ -50,5 +52,10 @@ class VerificationController extends Controller
         Auth::user()->sendEmailVerificationNotification();
         // redirect
         return back()->with('verificationEmailSent', true);
+    }
+
+    public function verify(Request $request)
+    {
+        dd($request->all());
     }
 }
