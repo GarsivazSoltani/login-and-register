@@ -56,6 +56,13 @@ class VerificationController extends Controller
 
     public function verify(Request $request)
     {
-        dd($request->all());
+        // check satatus email
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect()->route('home');
+        }
+        // verify
+        $request->user()->markEmailAsVerified();
+        // redirect
+        return redirect()->route('home')->with('emailHasVerified, true');
     }
 }
