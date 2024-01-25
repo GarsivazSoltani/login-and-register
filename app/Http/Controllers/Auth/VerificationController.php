@@ -62,6 +62,7 @@ class VerificationController extends Controller
         }
         // verify
         $request->user()->markEmailAsVerified();
+        session()->forget('mustVerifyEmail');
         // redirect
         return redirect()->route('home')->with('emailHasVerified, true');
     }
