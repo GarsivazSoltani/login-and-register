@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerificationController;
@@ -31,4 +32,6 @@ Route::prefix('auth')->group(function (){
     Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
     Route::get('email/send-verification', [VerificationController::class, 'send'])->name('auth.email.send.verification');
     Route::get('email/verify', [VerificationController::class, 'verify'])->name('auth.email.verify');
+    Route::get('password/forget', [ForgotPasswordController::class, 'showForgetForm'])->name('auth.password.forget.form');
+    Route::post('password/forget', [ForgotPasswordController::class, 'sendResetLink'])->name('auth.password.forget');
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
 
 class ForgotPasswordController extends Controller
 {
@@ -19,4 +20,18 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function showForgetForm()
+    {
+        return view('auth.forget-password');
+    }
+
+    public function sendResetLink(Request $request)
+    {
+        // validate
+        // create livk
+        // send link
+        // redirect
+        dd($request->all());
+    }
 }
