@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
 {
@@ -32,8 +33,12 @@ class ForgotPasswordController extends Controller
         $this->validateForm($request);
         // create livk
         // send link
+        $response = Password::broker()->sendResetLink($request->only('email'));
+        if ($response == Password::RESET_LINK_SENT) {
+            return back()->with('resetLinkSent');
+        }
+        return back()->with('resetLinkFailed', true);
         // redirect
-        dd($request->all());
     }
 
     protected function validateForm($request)
