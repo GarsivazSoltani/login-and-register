@@ -59,7 +59,7 @@ class VerificationController extends Controller
     {
         // check satatus email
         if ($request->user()->email != $request->query('email')) {
-            throw new AuthorizationException();
+            throw new AuthorizationException;
         }
         
         if ($request->user()->hasVerifiedEmail()) {

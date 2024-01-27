@@ -29,9 +29,17 @@ class ForgotPasswordController extends Controller
     public function sendResetLink(Request $request)
     {
         // validate
+        $this->validateForm($request);
         // create livk
         // send link
         // redirect
         dd($request->all());
+    }
+
+    protected function validateForm($request)
+    {
+        $request->validate([
+            'email' => ['required', 'email', 'exists:users']
+        ]);
     }
 }
